@@ -3,10 +3,10 @@
  * @returns { Promise<void> }
  */
 exports.up = function(knex) {
-  knex.schema.createTable("users", function (table) {
+  return knex.schema.createTable("users", function (table) {
     table.uuid("id");
     table.timestamp("created_at", { precision: 6 }).defaultTo(knex.fn.now(6));
-    table.string("primaryEmail");
+    table.string("primary_email");
     table.string("password");
     table.string("website");
     table.string("bio");
