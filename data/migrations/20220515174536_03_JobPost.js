@@ -19,18 +19,19 @@ exports.up = function(knex) {
      table.string("exp_level");
      table.string("visa_sponsorship");
      table.string("location");
-      table.string("remote_status");
-     table.jsonb("tags")
+     table.string("remote_status");
+     table.jsonb("tags");
 
-    //  Comp
-    table.integer("salary_min")
-    table.integer("salary_max");
-    
-    // Trial
-    table.string("interview_process")
-    table.string("project_type");
-    table.string("candidate_availability"); 
+     //  Comp
+     table.integer("salary_min");
+     table.integer("salary_max");
 
+     // Trial
+     // WE need timezone buy not in v1
+     table.string("interview_process");
+     table.string("project_type");
+     table.string("candidate_availability"); // drop down a) aviabale to nights and weekends b) align with day hours
+     table.string("total_work_days");
    });
 };
 
