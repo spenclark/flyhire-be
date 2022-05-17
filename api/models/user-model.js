@@ -2,11 +2,15 @@ const db = require("../../data/db-config");
 
 module.exports = {
   findById,
+  findByEmail,
   createUser,
   updateUser,
   deleteUser,
 };
 
+function findByEmail(where) {
+  return db("users").where({ primary_email: where });
+}
 function findById(id) {
   return db("users").where("id", id).first();
 } // should only be called through createUser.

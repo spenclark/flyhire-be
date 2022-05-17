@@ -4,9 +4,9 @@
  */
 exports.up = function(knex) {
   return knex.schema.createTable("users", function (table) {
-    table.uuid("id");
+    table.uuid("id").unique();
     table.timestamp("created_at");
-    table.string("primary_email");
+    table.string("primary_email").unique();
     table.string("password");
     table.string("website");
     table.string("bio");

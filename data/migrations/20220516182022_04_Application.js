@@ -4,7 +4,7 @@
  */
 exports.up = function(knex) {
    return knex.schema.createTable("application", function (table) {
-     table.uuid("id");
+     table.uuid("id").unique();
      table.timestamp("created_at");
      table
        .uuid("applicant_id")

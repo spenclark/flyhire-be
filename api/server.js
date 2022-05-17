@@ -8,6 +8,12 @@ server.use(helmet());
 server.use(express.json());
 server.use(cors());
 
+const adminRouter = require("./routers/admin-router");
+server.use("/api/admin", adminRouter);
+
+const userRouter = require("./routers/user-router");
+server.use("/api/user", userRouter);
+
 server.get("/", (req, res) => {
   res.json({
     status: "running",
@@ -16,3 +22,4 @@ server.get("/", (req, res) => {
 });
 
 module.exports = server;
+
