@@ -3,7 +3,38 @@
  * @returns { Promise<void> }
  */
 exports.up = function(knex) {
-  
+  return knex.schema.createTable("work_trial", function (table) {
+    table.uuid("id");
+    table.timestamp("created_at", { precision: 6 }).defaultTo(knex.fn.now(6));
+    table
+      .uuid("applicant_id")
+      .unsigned()
+      .notNullable()
+      .references("id")
+      .inTable("applicant")
+      .onUpdate("CASCADE")
+      .onDelete("CASCADE");
+    table
+      .uuid("post_id")
+      .unsigned()
+      .notNullable()
+      .references("id")
+      .inTable("job_post")
+      .onUpdate("CASCADE")
+      .onDelete("CASCADE");
+    table
+      .uuid("user_id")
+      .unsigned()
+      .notNullable()
+      .references("id")
+      .inTable("user")
+      .onUpdate("CASCADE")
+      .onDelete("CASCADE");
+    table.string("start_date");
+    table.string("aprox_end_date");
+    table.string("total_hours");
+    table.string("hourly_rate");
+  });
 };
 
 /**
@@ -11,5 +42,5 @@ exports.up = function(knex) {
  * @returns { Promise<void> }
  */
 exports.down = function(knex) {
-  
+    return knex.schema.dropTableIfExists("work_trial");
 };

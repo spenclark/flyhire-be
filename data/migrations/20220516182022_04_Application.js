@@ -14,16 +14,16 @@ exports.up = function(knex) {
        .inTable("applicant")
        .onUpdate("CASCADE")
        .onDelete("CASCADE");
-     table
-       .uuid("user_id")
-       .unsigned()
-       .notNullable()
-       .references("id")
-       .inTable("users")
-       .onUpdate("CASCADE")
-       .onDelete("CASCADE");
+    table
+      .uuid("post_id")
+      .unsigned()
+      .notNullable()
+      .references("id")
+      .inTable("job_post")
+      .onUpdate("CASCADE")
+      .onDelete("CASCADE");
      table.string("status").defaultTo("pending"); // drop down a) aviabale to nights and weekends b) align with day hours
-     table.boolean("available"); // drop down a) aviabale to nights and weekends b) align with day hours
+     table.boolean("available"); 
      table.string("cover_letter");
    });
 };
