@@ -5,7 +5,7 @@
 exports.up = function(knex) {
    return knex.schema.createTable("applicant", function (table) {
      table.uuid("id");
-     table.timestamp("created_at", { precision: 6 }).defaultTo(knex.fn.now(6));
+     table.timestamp("created_at");
      table.string("email");
      table.string("password");
      table.string("first_name");
