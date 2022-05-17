@@ -2,9 +2,7 @@ const db = require("../../data/db-config");
 
 module.exports = {
   getAll,
-  findById,
-  createUser,
-  updateUser,
+  findWhere,
   deleteUser,
 };
 
@@ -12,9 +10,9 @@ function getAll() {
   return db("users");
 }
 
-function findById(id) {
-  return db("users").where("id", id).first();
-} // should only be called through createUser.
+function findWhere(where) {
+  return db("users").where({ where });
+}
 
 function deleteUser() {
   return db("users").where("id", id).del();

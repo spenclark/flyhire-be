@@ -15,7 +15,8 @@ function getJwt(email) {
   };
 
   const secret =
-    process.env.JWT_SECRET || "Let me tell you a myth about secrets..";
+    process.env.JWT_SECRET ||
+    "9CB45284A63AED35EB91D56181FE7D3D92510A3DA2DD76A007A312180B18E2E4";
 
   const options = {
     expiresIn: "31d",

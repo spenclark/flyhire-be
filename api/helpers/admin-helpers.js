@@ -4,10 +4,6 @@ module.exports = {
   getJwt,
 };
 
-function validateUser(user) {
-  //   For example if banned or bot errors.push()
-}
-
 function getJwt(email) {
   const payload = {
     email,

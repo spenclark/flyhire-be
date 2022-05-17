@@ -1,7 +1,6 @@
 const db = require("../../data/db-config");
 
 module.exports = {
-  getAll,
   findById,
   createUser,
   updateUser,
@@ -21,3 +20,6 @@ function updateUser() {
   return db("users").where("id", id).update(user);
 } 
 
+function deleteUser() {
+  return db("users").where("id", id).del();
+}
