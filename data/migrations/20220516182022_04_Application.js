@@ -9,7 +9,7 @@ exports.up = function(knex) {
      table
        .uuid("applicant_id")
        .unsigned()
-       .notNullable()
+
        .references("id")
        .inTable("applicant")
        .onUpdate("CASCADE")
@@ -17,7 +17,7 @@ exports.up = function(knex) {
     table
       .uuid("post_id")
       .unsigned()
-      .notNullable()
+
       .references("id")
       .inTable("job_post")
       .onUpdate("CASCADE")

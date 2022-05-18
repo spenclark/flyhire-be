@@ -9,7 +9,7 @@ exports.up = function(knex) {
      table
        .uuid("user_id")
        .unsigned()
-       .notNullable()
+
        .references("id")
        .inTable("users")
        .onUpdate("CASCADE")
