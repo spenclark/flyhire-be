@@ -4,9 +4,9 @@ const helmet = require("helmet");
 
 const server = express();
 
-server.use(helmet());
+// server.use(helmet());
 server.use(express.json());
-server.use(cors());
+// server.use(cors());
 
 const adminRouter = require("./routers/admin-router");
 server.use("/api/admin", adminRouter);
