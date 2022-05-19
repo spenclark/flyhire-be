@@ -3,10 +3,7 @@
  * @returns { Promise<void> }
  */
 exports.up = function (knex) {
-    return knex
-      .raw('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"')
-      .then(function () {
-         knex.schema.createTable("admin", function (table) {
+         return knex.schema.raw('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"').createTable("admin", function (table) {
               table
                 .uuid("id")
                 .primary()
@@ -21,7 +18,7 @@ exports.up = function (knex) {
               table.string("password");
               table.integer("hierarchy");
           });
-        });
+        
 };
 
 /**
