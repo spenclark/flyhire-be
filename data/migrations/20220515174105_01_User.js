@@ -4,8 +4,12 @@
  */
 exports.up = function(knex) {
   return knex.schema.createTable("users", function (table) {
-    table.uuid("id").unique();
-    table.timestamp("created_at");
+    table
+      .uuid("id")
+      .primary()
+      .unique()
+      .defaultTo(knex.raw("uuid_generate_v4()"));
+    table.timestamp("created_at").defaultTo(knex.raw("CURRENT_TIMESTAMP"));
     table.string("primary_email").unique();
     table.string("password");
     table.string("website");
