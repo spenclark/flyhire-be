@@ -55,5 +55,7 @@ module.exports = {
         rejectUnauthorized: false,
       },
     },
+    strictSSL: false, // allow us to use our self-signed cert for testing
+    rejectUnauthorized: false,
   },
 };
