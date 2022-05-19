@@ -25,7 +25,6 @@ exports.up = function(knex) {
     table
       .uuid("user_id")
       .unsigned()
-
       .references("id")
       .inTable("users")
       .onUpdate("CASCADE")
