@@ -7,7 +7,7 @@ const Token = require("../helpers/auth-helpers.js");
 router.post("/login", (req, res) => {
   let { primary_email, password } = req.body;
 
-  Users.findByEmail({ primary_email })
+  Users.findByEmail(primary_email)
     .first()
     .then((user) => {
       if (user && bcrypt.compareSync(password, user.password)) {
