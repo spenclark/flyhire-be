@@ -23,3 +23,5 @@ server.get("/", (req, res) => {
 
 module.exports = server;
 
+
+// postgres://jtgarnpzfemxvn:3bb528f1a7f7357d127a167e6571c077af22b517a4947032a174f51c2fbb438d@ec2-3-231-82-226.compute-1.amazonaws.com:5432/d2pvfqfjhnjbr
