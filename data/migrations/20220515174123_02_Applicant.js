@@ -3,29 +3,30 @@
  * @returns { Promise<void> }
  */
 exports.up = function(knex) {
-  await knex.raw('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"');
-   return knex.schema.createTable("applicant", function (table) {
-     table
-       .uuid("id")
-       .primary()
-       .unique()
-       .defaultTo(knex.raw("uuid_generate_v4()"));
-     table.timestamp("created_at").defaultTo(knex.raw("CURRENT_TIMESTAMP"));
-     table.string("email");
-     table.string("password");
-     table.string("first_name");
-     table.string("last_name");
-     table.string("website");
-     table.string("linkedin");
-     table.string("job_title");
-     table.string("recent_employeer");
-     table.string("bio");
-     table.string("search_status");
-     table.string("next_job_letter");
-     table.string("exp_level");
-     table.string("currency");
-     table.string("salary_expectation");
-   });
+   return knex.schema
+     .raw('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"')
+     .createTable("applicant", function (table) {
+       table
+         .uuid("id")
+         .primary()
+         .unique()
+         .defaultTo(knex.raw("uuid_generate_v4()"));
+       table.timestamp("created_at").defaultTo(knex.raw("CURRENT_TIMESTAMP"));
+       table.string("email");
+       table.string("password");
+       table.string("first_name");
+       table.string("last_name");
+       table.string("website");
+       table.string("linkedin");
+       table.string("job_title");
+       table.string("recent_employeer");
+       table.string("bio");
+       table.string("search_status");
+       table.string("next_job_letter");
+       table.string("exp_level");
+       table.string("currency");
+       table.string("salary_expectation");
+     });
 };
 
 /**
