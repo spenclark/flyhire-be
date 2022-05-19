@@ -3,6 +3,7 @@
  * @returns { Promise<void> }
  */
 exports.up = function(knex) {
+  await knex.schema.raw('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"');
    return knex.schema.createTable("application", function (table) {
      table
        .uuid("id")
