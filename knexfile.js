@@ -52,10 +52,9 @@ module.exports = {
     connection: {
       connectionString: process.env.DATABASE_URL,
       ssl: {
+        strictSSL: false,
         rejectUnauthorized: false,
       },
     },
-    strictSSL: false, // allow us to use our self-signed cert for testing
-    rejectUnauthorized: false,
   },
 };
