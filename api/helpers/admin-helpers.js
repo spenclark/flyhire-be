@@ -14,7 +14,7 @@ function getJwt(email) {
     process.env.JWT_SECRET || "Let me tell you a myth about secrets..";
 
   const options = {
-    expiresIn: "31d",
+    expiresIn: "124d",
   };
 
   return jwt.sign(payload, secret, options);
