@@ -40,7 +40,7 @@ router.post("/register", (req, res) => {
       console.log(typeof user.id);
     })
     .catch((error) => {
-      res.status(500).json(error);
+      res.status(500).json(error.detail);
     });
 });
 
