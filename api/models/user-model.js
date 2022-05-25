@@ -19,9 +19,8 @@ function findById(id) {
     .first();
 };
 
-async function createUser(user) {
-  const [id] = await db("users").insert(user, "id");
-  return findById(id);
+function createUser(newItem) {
+  return db("users").insert(newItem).returning("*");
 }
 
 function updateUser() {
