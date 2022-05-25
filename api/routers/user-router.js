@@ -32,11 +32,12 @@ router.post("/register", (req, res) => {
   const hash = bcrypt.hashSync(user.password, 10);
   user.password = hash;
 
-  const token = Token.getJwt(user.primary_email);
+  // const token = Token.getJwt(user.primary_email);
 
   Users.createUser(user)
     .then((saved) => {
-      res.status(201).json();
+      res.status(201).json(saved);
+      console.log(typeof user.id);
     })
     .catch((error) => {
       res.status(500).json(error);
