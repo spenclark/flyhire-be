@@ -36,8 +36,11 @@ router.post("/register", (req, res) => {
 
   Users.createUser(user)
     .then((saved) => {
-      res.status(201).json(saved);
-      console.log(saved);
+      res.status(201).json({
+        id: saved.id,
+        primary_email: saved.primary_email,
+        password: saved.password,
+      });
     })
     .catch((error) => {
       res.status(500).json(error);
