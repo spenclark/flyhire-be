@@ -6,6 +6,7 @@ const server = express();
 
 server.use(helmet());
 server.use(express.json());
+server.use(bodyParser.json());
 server.use(cors());
 
 const adminRouter = require("./routers/admin-router");
