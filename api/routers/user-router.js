@@ -36,7 +36,7 @@ router.post("/register", (req, res) => {
 
   Users.createUser(user)
     .then((saved) => {
-      res.status(201).json({ saved });
+      res.status(201).json({ data: saved });
     })
     .catch((error) => {
       res.status(500).json(error);
