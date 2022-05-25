@@ -5,7 +5,7 @@
 exports.up = function(knex) {
   return  knex.schema.raw('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"').createTable("users", function (table) {
     table
-      .uuid("id")
+      .string("id")
       .primary()
       .unique()
       .defaultTo(knex.raw("uuid_generate_v4()"));
