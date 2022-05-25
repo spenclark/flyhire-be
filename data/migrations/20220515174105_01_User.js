@@ -8,7 +8,7 @@ exports.up = function(knex) {
       .uuid("id")
       .primary()
       .unique()
-      .defaultTo(String(knex.raw("uuid_generate_v4()")));
+      .defaultTo(knex.raw("uuid_generate_v4()"));
     table.timestamp("created_at").defaultTo(knex.raw("CURRENT_TIMESTAMP"));
     table.string("primary_email").unique();
     table.string("password");
