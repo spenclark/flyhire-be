@@ -12,8 +12,10 @@ function findByEmail(where) {
   return db("users").where({ primary_email: where });
 }
 function findById(id) {
-  return db("users").where("id", String(id)).first();
-} // should only be called through createUser.
+  return db('users')
+    .where({ id })
+    .first();
+};
 
 async function createUser(user) {
   const [id] = await db("users").insert(user, "id");
