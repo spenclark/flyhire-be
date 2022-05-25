@@ -16,8 +16,8 @@ function findById(id) {
 } // should only be called through createUser.
 
 async function createUser(user) {
-  const [email] = await db("users").insert(user, "primary_email");
-  return findByEmail(email);
+  const [id] = await db("users").insert(user, "id");
+  return findById(id);
   
 }
 
