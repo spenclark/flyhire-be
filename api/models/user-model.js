@@ -12,7 +12,8 @@ function findByEmail(where) {
   return db("users").where({ primary_email: where });
 }
 function findById(id) {
-  console.log(typeof id);
+  console.log(typeof id, "type of");
+  console.log(id.toString(), "type of");
   return db('users')
     .where({ id })
     .first();
@@ -21,7 +22,6 @@ function findById(id) {
 async function createUser(user) {
   const [id] = await db("users").insert(user, "id");
   return findById(id);
-  
 }
 
 function updateUser() {
