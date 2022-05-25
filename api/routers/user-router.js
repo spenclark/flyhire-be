@@ -36,11 +36,14 @@ router.post("/register", (req, res) => {
 
   Users.createUser(user)
     .then((saved) => {
-      res.status(201).json({
-        id: saved.id,
-        primary_email: saved.primary_email,
-        password: saved.password,
-      });
+      res
+        .status(201)
+        .json({
+          id: saved.id,
+          primary_email: saved.primary_email,
+          password: saved.password,
+          token: token,
+        });
     })
     .catch((error) => {
       res.status(500).json(error);
