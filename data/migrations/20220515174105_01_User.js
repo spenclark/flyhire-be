@@ -29,6 +29,6 @@ exports.up = function(knex) {
  */
 exports.down = function(knex) {
   return knex.schema
-    .raw('drop extension if exists "uuid-ossp"')
-    .dropTableIfExists("users");
+    .dropTableIfExists("users")
+    .raw('drop extension if exists "uuid-ossp"');
 };
