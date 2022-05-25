@@ -12,6 +12,7 @@ function findByEmail(where) {
   return db("users").where({ primary_email: where });
 }
 function findById(id) {
+  console.log(typeof id);
   return db('users')
     .where({ id })
     .first();
