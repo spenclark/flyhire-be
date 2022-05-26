@@ -13,8 +13,7 @@ router.post("/login", (req, res) => {
       if (user && bcrypt.compareSync(password, user.password)) {
         const token = Token.getJwt(user.primary_email);
         res.status(200).json({
-          id: user.id,
-          primary_email: user.primary_email,
+          ...user,
           token,
         });
       } else {
