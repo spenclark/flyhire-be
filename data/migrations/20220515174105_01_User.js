@@ -16,7 +16,7 @@ exports.up = function(knex) {
     table.string("bio");
     table.string("employee_count");
     table.string("hq_location");
-    table.string("company_name");
+    table.string("company_name").unique();;
 
     table.string("interview_process");
     table.string("project_type");
