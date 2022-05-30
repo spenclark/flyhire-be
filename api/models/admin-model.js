@@ -16,10 +16,10 @@ function getAllApplicants() {
   return db("applicant");
 }
 
-function findWhere(where) {
-  return db("users").where({ where });
-}
-
 function deleteUser() {
   return db("users").where("id", id).del();
+}
+
+function findWhere(where) {
+  return db("users").where({ where });
 }
