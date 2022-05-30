@@ -33,7 +33,7 @@ router.post("/register", (req, res) => {
 
   // const token = Token.getJwt(user.primary_email);
 
-  Applicant.createUser(user)
+  Applicant.createApplicant(user)
     .then((saved) => {
       res.status(201).json(saved);
     })
