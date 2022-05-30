@@ -14,6 +14,9 @@ server.use("/api/admin", adminRouter);
 const userRouter = require("./routers/user-router");
 server.use("/api/user", userRouter);
 
+const applicantRouter = require("./routers/applicant-router");
+server.use("/api/applicant", applicantRouter);
+
 server.get("/", (req, res) => {
   res.json({
     status: "running",
