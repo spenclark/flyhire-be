@@ -4,10 +4,16 @@ module.exports = {
   getAll,
   findWhere,
   deleteUser,
+  getAllApplicants,
 };
 
 function getAll() {
   return db("users");
+}
+
+
+function getAllApplicants() {
+  return db("applicant");
 }
 
 function findWhere(where) {

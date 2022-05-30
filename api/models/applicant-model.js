@@ -9,7 +9,7 @@ module.exports = {
 };
 
 function findByEmail(where) {
-  return db("applicant").where({ primary_email: where }).returning("*");
+  return db("applicant").where({ email: where }).returning("*");
 }
 function findById(id) {
   return db("applicant").where({ id }).first();
