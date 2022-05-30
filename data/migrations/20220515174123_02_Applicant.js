@@ -12,7 +12,7 @@ exports.up = function(knex) {
          .unique()
          .defaultTo(knex.raw("uuid_generate_v4()"));
        table.timestamp("created_at").defaultTo(knex.raw("CURRENT_TIMESTAMP"));
-       table.string("email");
+       table.string("email").unique();
        table.string("password");
        table.string("first_name");
        table.string("last_name");
